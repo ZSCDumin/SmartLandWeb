@@ -1,0 +1,13 @@
+.pages {
+    margin:0;
+    padding:0;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.ant-menu.ant-menu-white.ant-menu-root.ant-menu-inline{
+    height: 100%;
+}
+.menu-div {
+    height: 90%;
+}
