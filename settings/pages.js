@@ -25,7 +25,7 @@ class Pages extends Component {
                             <Route path='/system-settings/institution-management' component={InstitutionManagement}/>
                             <Route path='/system-settings/user-management' component={UserManagement}/>
                             <Route path='/system-settings/role-management' component={RoleManagement}/>
-                            <Route path='/system-settings/role-authority-allocation' component={RoleAuthorityAllocation}/>
+                            {/*<Route path='/system-settings/role-authority-allocation' component={RoleAuthorityAllocation}/>*/}
                             <Route path='/system-settings/diary-management-login' component={DiaryManagementLogin}/>
                             <Route path='/system-settings/diary-management-do' component={DiaryManagementDo}/>
                             {/*<Redirect path='/system-settings/institution-management'/>*/}

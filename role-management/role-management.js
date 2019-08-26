@@ -171,7 +171,6 @@ export default class RoleManagement extends React.Component {
         .then((result) => {
            console.log('RESULT:')
            console.log(result)
-
           this.setState({loading: false})
           console.log('result.data.code',result.data.code)
           if (result.data.code === 0){

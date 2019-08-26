@@ -99,40 +99,41 @@ export default class InstitutionManagement extends React.Component {
     )
   }
 //添加用户
-//   addInstitution=()=>{
-//     console.log('addInstitution()')
-//     const institution = this.form.getFieldsValue()
-//     this.form.resetFields()
-//     // 1.隐藏确定框
-//     this.setState({
-//       isShow: 0})
-//     //2.发请求添加用户
-//     axios({
-//       url: 'http://115.157.200.94:8899/smartland/permissionuserdto',
-//       method: "put",
-//       params:{
-//         operatorCode:4,
-//       },
-//       data:user,
-//     })
-//       .then((result)=>{
-//         console.log('RESULT:')
-//         console.log(result)
-//
-//         this.setState({loading:false})
-//         if(result.data.code===0){
-//           const users=result.data.data
-//           // console.log(users)
-//           // console.log()
-//           this.setState(users);
-//           //3.重新显示列表
-//           this.getUsers()
-//         }
-//         else{
-//           message.error('添加用户失败！')
-//         }
-//       }).catch(error => console.log(error))
-//   }
+  addInstitution=()=>{
+    console.log('addInstitution()')
+    const institution = this.form.getFieldsValue()
+    this.form.resetFields()
+    // 1.隐藏确定框
+    this.setState({
+      isShow: 0})
+    //2.发请求添加用户
+    axios({
+      url: 'http://115.157.200.94:8899/smartland/permissionuserdto',
+      method: "put",
+      params:{
+        operatorCode:4,
+      },
+      data:institution,
+    })
+        .then((result)=>{
+          console.log('RESULT:')
+          console.log(result)
+
+          this.setState({loading:false})
+          if(result.data.code===0){
+            message.success('添加机构成功！')
+            const institutions=result.data.data
+            // console.log(users)
+            // console.log()
+            this.setState(institutions);
+            //3.重新显示列表
+            this.getInstitutions()
+          }
+          else{
+            message.error('添加机构失败！')
+          }
+        }).catch(error => console.log(error))
+  }
 //编辑用户
   editInstitution=()=>{
     const institution = this.form.getFieldsValue()
@@ -240,17 +241,17 @@ export default class InstitutionManagement extends React.Component {
           loading={loading}
           pagination={{defaultPageSize: 6, showQuickJumper: true}}
         />
-        {/*<Modal*/}
-        {/*  title="新增机构"*/}
-        {/*  visible={isShow === 1}*/}
-        {/*  onOk={this.addInstitutions}*/}
-        {/*  onCancel={this.handleCancel}*/}
-        {/*>*/}
-        {/*  <AddForm*/}
-        {/*    setForm={(form)=>{this.form=form}}*/}
-        {/*    // user={user}*/}
-        {/*  />*/}
-        {/*</Modal>*/}
+        <Modal
+            title="新增机构"
+            visible={isShow === 1}
+            onOk={this.addInstitution}
+            onCancel={this.handleCancel}
+        >
+          <AddForm
+              setForm={(form)=>{this.form=form}}
+              // user={user}
+          />
+        </Modal>
         <Modal
           title="编辑机构（请不要修改编号）"
           visible={isShow === 2}

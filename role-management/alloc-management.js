@@ -76,6 +76,7 @@ function onChange(e) {
     return (
         <div>
           <Table
+              rowKey='menu2Name'
               bordered
               rowKey={role=>role.code}
               columns={this.columns}
